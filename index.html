@@ -6,72 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="./lab9_css/cal_default.css" id="themeCSS">
+    <script>
+        function Home(){
+          location.replace("index.html");
+        } 
+        function show(params){ 
+             document.getElementById("result").value+=params;
 
+        }
+        function solve(){ 
+             let x = document.getElementById("result").value;
+             let y = eval(x); 
+             document.getElementById("result").value = y; 
+        } 
+        function remove(){ 
+             document.getElementById("result").value = ""; 
+        }
+        function changeTheme(){
+            let x = document.getElementById("theme").value;
+            if (x ==="default"){
+                document.getElementById("themeCSS").href= "./lab9_css/cal_default.css";
+            }else if(x ==="dark"){
+                document.getElementById("themeCSS").href= "./lab9_css/cal_dark.css";
+            }else{
+                document.getElementById("themeCSS").href= "./lab9_css/cal_colorful.css";
+            }
+        }
+
+    </script>
+    <style>
+        .main-container{
+            padding:100px;
+            width: 60%;
+            padding-left: 40%;
+        }
+        #selection {
+            margin-bottom:50px;
+        }
+        #selection label{
+            font-size: 20px;
+            font-weight: 500;
+        }
+        #theme{
+            height: 30px;
+            width: 80px;
+            border: 2px solid black;
+        }
+
+        
+
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="container">
-        <div class="header">
-            <div class="header-name">
-                Calculator
+    <div class="home">
+        <div class="main-container">
+            <div id="selection">
+                <label for="theme">Select theme:</label>
+                <select name="theme" id="theme" onchange="changeTheme()">
+                    <option value="default">Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="colorful">Colorful</option>
+                </select>
             </div>
-            <div class="header-bar">
-                <ul>
-                    <li>-</li>
-                    <li> &#8719;</li>
-                    <li>x</li>
-                </ul>
-            </div>
-        </div>
-        <div class="screen">
-            <p>0</p>
-        </div>
-        <div class="keyboard">
-            <table>
-                <tr>
-                    <td> <input type="button" value="MC"></td>
-                    <td><input type="button" value="MR"></td>
-                    <td><input type="button" value="M+"></td>
-                    <td><input type="button" value="MS"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="%"></td>
-                    <td><input type="button" value="CE"></td>
-                    <td><input type="button" value="C"></td>
-                    <td><input type="button" value="DEL"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="1/x"></td>
-                    <td><input type="button" value="x2"></td>
-                    <td><input type="button" value="2vx"></td>
-                    <td><input type="button" value="/"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="7"></td>
-                    <td><input type="button" value="8"></td>
-                    <td><input type="button" value="9"></td>
-                    <td><input type="button" value="X"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="4"></td>
-                    <td><input type="button" value="5"></td>
-                    <td><input type="button" value="6"></td>
-                    <td><input type="button" value="-"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="1" id=""></td>
-                    <td><input type="button" value="2"></td>
-                    <td><input type="button" value="3"></td>
-                    <td><input type="button" value="+"></td>
-                </tr>
-                <tr>
-                    <td><input type="button" value="+/-" id=""></td>
-                    <td><input type="button" value="0"></td>
-                    <td><input type="button" value="."></td>
-                    <td><input type="button" value="="></td>
-                </tr>
-            </table>
-        </div>
+            <table border="1" class="caculator"> 
+                <tr> 
+                   <td colspan="3"><input type="text" id="result" placeholder="0"/></td> 
+                </tr> 
+                <tr id="r1"> 
+                   <td><input type="button" value="1" onclick="show('1')"/> </td> 
+                   <td><input type="button" value="2" onclick="show('2')"/> </td> 
+                   <td><input type="button" value="3" onclick="show('3')"/> </td> 
+                   <td><input type="button" value="/" onclick="show('/')"/> </td> 
+                </tr> 
+                <tr id="r2"> 
+                   <td><input type="button" value="4" onclick="show('4')"/> </td> 
+                   <td><input type="button" value="5" onclick="show('5')"/> </td> 
+                   <td><input type="button" value="6" onclick="show('6')"/> </td> 
+                   <td><input type="button" value="-" onclick="show('-')"/> </td> 
+                </tr> 
+                <tr id="r3"> 
+                   <td><input type="button" value="7" onclick="show('7')"/> </td> 
+                   <td><input type="button" value="8" onclick="show('8')"/> </td> 
+                   <td><input type="button" value="9" onclick="show('9')"/> </td> 
+                   <td><input type="button" value="+" onclick="show('+')"/> </td> 
+                </tr> 
+                <tr id="r4"> 
+                    <td><input type="button" value="c" onclick="remove()"/> </td>
+                   <td><input type="button" value="0" onclick="show('0')"/> </td> 
+                   <td><input type="button" value="=" onclick="solve()"/> </td> 
+                   <td><input type="button" value="*" onclick="show('*')"/> </td> 
+                </tr> 
+             </table>         
         </div>
     </div>
 </body>

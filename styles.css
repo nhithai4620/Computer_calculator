@@ -5,7 +5,7 @@
 }
 
 body {
-  background: lightblue;
+  background: white;
 }
 
 .wrapper {
@@ -42,53 +42,6 @@ body {
   margin-left: 5px;
   font-size: 20px;
   text-align: center;
-}
-
-.name {
-  color: white;
-  padding: 10px;
-}
-
-.screen {
-  height: 100px;
-  align-items: flex-end;
-  position: relative;
-}
-.screen p {
-  color: white;
-  font-size: 40px;
-  position: absolute;
-  top: 40px;
-  right: 15px;
-}
-
-.keyboard {
-  max-width: 500px;
-}
-.keyboard table {
-  border-spacing: 3px;
-}
-.keyboard table th, .keyboard td {
-  border: none;
-}
-.keyboard input[type=button] {
-  width: 122px;
-  height: 37px;
-  font-size: 15px;
-  font-weight: 500;
-}
-.keyboard input[type=button]:hover {
-  box-shadow: none;
-  transition: 0.6s;
-  color: red;
-  background-color: #fcfafa;
-}
-.keyboard input[type=button]:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-  border: none;
-  transition: 0.6s;
-  background-color: #fcfafa;
 }
 
 /*# sourceMappingURL=styles.css.map */
